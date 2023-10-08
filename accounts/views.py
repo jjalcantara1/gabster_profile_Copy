@@ -83,11 +83,6 @@ def get_redirect_if_exists(request):
             redirect = str(request.GET.get('next'))
     return redirect
 
-
-# def profile_view(request):
-#     return redirect('profile')
-
-
 def post(request):
     return render(request, "posts/post.html", {})
 

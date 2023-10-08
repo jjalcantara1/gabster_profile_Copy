@@ -1,0 +1,21 @@
+{% extends "profile/header.html" %}
+
+{% block content %}
+  <h2>Testimonials for {{ user.username }}</h2>
+  {% if testimonials_received %}
+    <ul>
+      {% for testimonial in testimonials_received %}
+
+    <li>
+         <strong>From: {{ testimonial.user_from.username }}</strong><br>
+         <strong>Date Sent: {{ testimonial.createdAt }}</strong><br>
+         {{ testimonial.content }}
+              </li>
+        {% endfor %}
+    </ul>
+  {% else %}
+    <p>No testimonials yet.</p>
+  {% endif %}
+{% endblock %}
+
+

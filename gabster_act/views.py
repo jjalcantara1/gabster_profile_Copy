@@ -21,8 +21,8 @@ def profile_view(request, username):
     }
     return render(request, 'profile/profile.html', context)
 
-def post(request):
-    return render(request, "posts/post.html", {})
+# def post(request):
+#     return render(request, "posts/post.html", {})
 
-def testimonials(request):
-    return render(request, "posts/testimonials.html", {})
+# def testimonials(request):
+#     return render(request, "posts/testimonials.html", {})

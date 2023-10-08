@@ -15,6 +15,8 @@ class Post(models.Model):
     def __str__(self):
         return str(self.content)
 
+    def __repr__(self):
+        return f"Post('{self.content}', '{self.createdAt}')"
 
 # class Post (models.Model):
 #     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE

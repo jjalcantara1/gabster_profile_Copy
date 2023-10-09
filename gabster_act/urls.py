@@ -46,7 +46,8 @@ urlpatterns = [
     # re_path(r'^testimonial/(?P<username>[\w.@+-]+)/create/$', TestimonialDetailView.as_view(), name='testimonial-detail'),
     # re_path(r'^addtestimonials/(?P<username>[\w.@+-]+)/$', views.add_testimonial, name='add_testimonial'),
     path('addtestimonials/<str:user_to_username>/', views.add_testimonial, name='add_testimonial'),
-    path('testimonials/<str:username>/', views.view_testimonials, name='view_testimonials'),
+    path('testimonials/<str:user_to_username>/', views.view_testimonials, name='view_testimonials'),
+    path('testimonials/<str:user_to_username>/<int:testimonial_id>/', views.testimonial_detail, name='testimonial_detail'),
     # re_path(r'^testimonials/(?P<username>[\w.@+-]+)$', views.view_testimonials, name='view_testimonials'),
 
 

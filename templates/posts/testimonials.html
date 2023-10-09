@@ -73,9 +73,9 @@
 {##}
 {#</body>#}
 {#</html>#}
-
-{% extends "profile/header.html" %}
-
+{##}
+{#{% extends "profile/header.html" %}#}
+{##}
 {#{% block content %}#}
 {#  <h2>Add Testimonial</h2>#}
 {#  <h2>{{ user_to.username }}</h2>#}
@@ -85,24 +85,125 @@
 {#    <button type="submit">Submit</button>#}
 {#  </form>#}
 {#{% endblock %}#}
+{##}
+{##}
+{#{% block content %}#}
+{#  <h2>Add Testimonial</h2>#}
+{#  <h2>{{ user_to.username }}</h2>#}
+{#  <form method="post">#}
+{#    {% csrf_token %}#}
+{##}
+{#    <div class="form-group">#}
+{#      <label for="id_content">Testimonial Content:</label>#}
+{#      <textarea id="id_content" name="content" rows="4" cols="50"></textarea>#}
+{#    </div>#}
+{##}
+{#    <input type="hidden" name="user_to_username" value="{{ user_to.username }}">#}
+{##}
+{#    <button type="submit">Submit</button>#}
+{#  </form>#}
+{#{% endblock %}#}
+{##}
+{##}
+{#{% block content %}#}
+{#  <h2>Add Testimonial</h2>#}
+{#  <h2>{{ user_to.username }}</h2>#}
+{#  <form method="post">#}
+{#    {% csrf_token %}#}
+{##}
+{#    <div class="form-group">#}
+{#      <label for="id_content">Testimonial Content:</label>#}
+{#      <textarea id="id_content" name="content" rows="4" cols="50"></textarea>#}
+{#    </div>#}
+{##}
+{#    <div class="form-group">#}
+{#      <label for="id_rating">Rating:</label>#}
+{#      <div class="rating">#}
+{#        <input type="radio" id="star5" name="rating" value="5">#}
+{#        <label for="star5">5 stars</label>#}
+{#        <input type="radio" id="star4" name="rating" value="4">#}
+{#        <label for="star4">4 stars</label>#}
+{#        <input type="radio" id="star3" name="rating" value="3">#}
+{#        <label for="star3">3 stars</label>#}
+{#        <input type="radio" id="star2" name="rating" value="2">#}
+{#        <label for="star2">2 stars</label>#}
+{#        <input type="radio" id="star1" name="rating" value="1">#}
+{#        <label for="star1">1 star</label>#}
+{#      </div>#}
+{#    </div>#}
+{##}
+{#    <input type="hidden" name="user_to_username" value="{{ user_to.username }}">#}
+{##}
+{#    <button type="submit">Submit</button>#}
+{#  </form>#}
+{#{% endblock %}#}
+{##}
+{##}
+{##}
 
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Testimonial</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap" rel="stylesheet">
+	<link href="{% static 'profile/testimonials.css' %}" rel="stylesheet">
+	<link id="theme-style" rel="stylesheet" type="text/css" href="">
+</head>
+<body>
+	<div class="testimonial-container">
+		<h1 style="text-align: center">Make A Testimonial</h1>
 
-{% block content %}
-  <h2>Add Testimonial</h2>
-  <h2>{{ user_to.username }}</h2>
-  <form method="post">
-    {% csrf_token %}
+		<form method="post" id="testimonial-form">
+			{% csrf_token %}
 
-    <div class="form-group">
-      <label for="id_content">Testimonial Content:</label>
-      <textarea id="id_content" name="content" rows="4" cols="50"></textarea>
-    </div>
+			<label id="rate">Rating:</label>
 
-    <input type="hidden" name="user_to_username" value="{{ user_to.username }}">
+			<div class="rating">
+				<label>
+					<input type="radio" name="rating" value="1" />
+					<span class="icon">★</span>
+				</label>
+				<label>
+					<input type="radio" name="rating" value="2" />
+					<span class="icon">★</span>
+					<span class="icon">★</span>
+				</label>
+				<label>
+					<input type="radio" name="rating" value="3" />
+					<span class="icon">★</span>
+					<span class="icon">★</span>
+					<span class="icon">★</span>
+				</label>
+				<label>
+					<input type="radio" name="rating" value="4" />
+					<span class="icon">★</span>
+					<span class="icon">★</span>
+					<span class="icon">★</span>
+					<span class="icon">★</span>
+				</label>
+				<label>
+					<input type="radio" name="rating" value="5" />
+					<span class="icon">★</span>
+					<span class="icon">★</span>
+					<span class="icon">★</span>
+					<span class="icon">★</span>
+					<span class="icon">★</span>
+				</label>
+			</div>
 
-    <button type="submit">Submit</button>
-  </form>
-{% endblock %}
+			<label for="id_content">Testimonial Content:</label>
+			<textarea id="id_content" name="content" rows="4" cols="50" class="testimonial-field"></textarea>
 
-
-
+			<input type="hidden" name="user_to_username" value="{{ user_to.username }}">
+			<input id="submit-btn" type="submit" value="Add Testimonial">
+		</form>
+	</div>
+</body>
+</html>

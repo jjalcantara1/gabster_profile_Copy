@@ -1,0 +1,14 @@
+{% extends "profile/header.html" %}
+{% block content %}
+<div class="testimonial-detail">
+    <h2>Testimonial Detail</h2>
+    <div class="testimonial-card">
+        <!-- Display detailed information for the testimonial -->
+        <p>{{ testimonial.content }}</p>
+        <p>Rating: {{ testimonial.rating }}</p>
+        <p>From: {{ testimonial.user_from.username }}</p>
+        <p>Date Sent: {{ testimonial.createdAt }}</p>
+        <!-- Add any other details you want to display -->
+    </div>
+</div>
+{% endblock %}
